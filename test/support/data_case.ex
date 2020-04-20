@@ -24,6 +24,7 @@ defmodule Olc.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import Olc.DataCase
+      import Olc.Factory
     end
   end
 

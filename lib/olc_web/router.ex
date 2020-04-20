@@ -20,6 +20,13 @@ defmodule OlcWeb.Router do
     live "/", PageLive, :index
   end
 
+  scope "/api", OlcWeb do
+    pipe_through :api
+
+    resources "/users", UserController
+    resources "/chats", ChatController
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", OlcWeb do
   #   pipe_through :api
@@ -37,7 +44,7 @@ defmodule OlcWeb.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: OlcWeb.Telemetry
+      live_dashboard "/live_dashboard", metrics: OlcWeb.Telemetry
     end
   end
 end
